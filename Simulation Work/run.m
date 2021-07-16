@@ -19,8 +19,8 @@ clc;
         %RAA226110 GaN Driver
     Vgs_on=15;          % Gate turn on voltage in V
     Vgs_off=-4;        % Gate turn off voltage in V
-    R_on=17;            % Gate turn on resistance in Ohms
-    R_off=17;           % Gate turn off resistance in Ohms
+    R_exton=5;            % Gate turn on resistance in Ohms
+    R_extoff=5;           % Gate turn off resistance in Ohms
     L_gateloop=4;      % Gate loop parasitic inductance in nH
     ton_delay= 20;     % Gate driver turn on delay time
     toff_delay=20;     % Gate driver turn off delay time
@@ -32,12 +32,13 @@ clc;
  Ids=15;        % Drain to source current in A
  Vgs=15;        %
  Vth=2.1;       % Gate treshold voltage in V
+ R_internal=13; % Internal gate resistance in ohms
  Temp=25;       % Junction temperature in C
  Ciss=414;      % Input parasitic capacitance in pF
  Crss=3;        % Reverse transfer capacitance in pF
  Coss=48;       % Output capacitance in pF
- 
- 
+ R_on=R_internal+R_exton;
+ R_off=R_internal+R_extoff;
  
  % Body Diode Parameters
  
