@@ -1,7 +1,7 @@
 clear all;
 clc;
-
-%%%First please run the parameters. Then run the simulink model. 
+%HAKAN POLAT DPT
+%%%First please run only the parameters. Then run the simulink model. 
 %Finally you can plot the graphs
 
 %Simulation time parameters
@@ -50,6 +50,8 @@ clc;
  I_diode=0;
  V_diode=4.4;
  t_transit=52; %in ns
+ 
+
  %% Plot Code 1
  %This code plots the overall switchings
     
