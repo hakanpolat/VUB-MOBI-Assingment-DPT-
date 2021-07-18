@@ -7,7 +7,7 @@ clc;
 %Simulation time parameters
     fsw=200e3; %frequency in Hz
     tp=1/fsw; %period in seconds
-    dead_time=30e-9; %dead time in s
+    
 %Simulation Parameters
     Vin=600;            % DC voltage in V
     C_dclink=100;       % DC link capacitance in uF
@@ -17,7 +17,7 @@ clc;
     L_parHB=1;          % Parasitic inductance between semiconductors in nH
     L_load=1e-3;        % Load inductor inductance in H
  
-    sim_time=(L_load*I_test)/Vin+3*tp+1e-5;
+    sim_time=(L_load*I_test)/Vin+3*tp+1e-5; %Simulation time
  %Gate Driver Parameters
         %RAA226110 GaN Driver
     Vgs_on=15;          % Gate turn on voltage in V
