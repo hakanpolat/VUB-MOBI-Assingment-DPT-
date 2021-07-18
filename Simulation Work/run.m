@@ -5,14 +5,13 @@ clc;
 %Finally you can plot the graphs
 
 %Simulation time parameters
-    fsw=200e3; %frequency in Hz
+    fsw=100e3; %frequency in Hz
     tp=1/fsw; %period in seconds
     
 %Simulation Parameters
-    Vin=600;            % DC voltage in V
-    C_dclink=100;       % DC link capacitance in uF
+    Vin=600;            % DC voltage in V    
     I_test=15;          % Desired Ids of DUT in A
-    L_parline=10;        % Parasitic line inductance in nH
+    L_parline=10;       % Parasitic line inductance in nH
     R_parline=1e-6;     % Parasitic line resistance in Ohms
     L_parHB=1;          % Parasitic inductance between semiconductors in nH
     L_load=1e-3;        % Load inductor inductance in H
@@ -20,13 +19,13 @@ clc;
     sim_time=(L_load*I_test)/Vin+3*tp+1e-5; %Simulation time
  %Gate Driver Parameters
         %RAA226110 GaN Driver
-    Vgs_on=15;          % Gate turn on voltage in V
-    Vgs_off=-4;        % Gate turn off voltage in V
-    R_exton=5;            % Gate turn on resistance in Ohms
-    R_extoff=5;           % Gate turn off resistance in Ohms
-    L_gateloop=7;      % Gate loop parasitic inductance in nH
-    ton_delay= 20;     % Gate driver turn on delay time
-    toff_delay=20;     % Gate driver turn off delay time
+    Vgs_on=15;              % Gate turn on voltage in V
+    Vgs_off=-4;             % Gate turn off voltage in V
+    R_exton=2.5;            % Gate turn on resistance in Ohms
+    R_extoff=2.5;           % Gate turn off resistance in Ohms
+    L_gateloop=7;           % Gate loop parasitic inductance in nH
+    ton_delay= 20;          % Gate driver turn on delay time
+    toff_delay=20;          % Gate driver turn off delay time
  
  % Switch Parameters
            % C3M0120090D 
@@ -43,13 +42,14 @@ clc;
  Coss=[120,105,100,70,60,50,50,50,50,50];% Output capacitance in pF
  V_dscorrespond= [20,60,100,200,300,400,500,600,700,800]; 
 
- R_on=R_internal+R_exton;
- R_off=R_internal+R_extoff;
+ R_on=R_internal+R_exton;   %Applied gate driver turn on resistance including the internal gate resistance
+ R_off=R_internal+R_extoff; %Applied gate driver turn on resistance including the internal gate resistance
+  
  
  % Body Diode Parameters 
  I_diode=0;
  V_diode=4.4;
- t_transit=28; %in ns
+ t_transit=52; %in ns
  %% Plot Code 1
  %This code plots the overall switchings
     
