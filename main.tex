@@ -61,11 +61,11 @@ A DPT circuit consists of a loading inductor, a freewheel diode, and the DUT giv
 	\label{fig:DPTcircuit}
 \end{figure}
 
-Therefore, the gate-source voltage ($V_{gs}$) of the high side semiconductor is smaller than the threshold voltage $V_{th}$. To avoid false turn-on during hard switching conditions, a negative voltage is applied for SiC and GaN devices since the parasitic gate-source capacitance ($C_{gs}$) is much smaller than conventional Si devices. The load inductor is first charged to the desired current. Then the DUT is turned off, and the load current flows from the freewheeling body-diode. In order to observe the turn-on characteristics, the DUT is turned on and off once more. By controlling the switching times, the DUT characteristics can be measured in a controlled manner. A typical DUT $I_{ds}$ current is shown in Fig. \ref{fig:DPTtiming} \cite{Infineon}.  Here it is important to list a few features of the load inductor:
+The gate-source voltage ($V_{gs}$) of the high side semiconductor is smaller than the threshold voltage $V_{th}$. To avoid false turn-on during hard switching conditions, a negative voltage is applied for SiC and GaN devices since the parasitic gate-source capacitance ($C_{gs}$) is much smaller than conventional Si devices. The load inductor is first charged to the desired current. Then the DUT is turned off, and the load current flows from the freewheeling body-diode. In order to observe the turn-on characteristics, the DUT is turned on and off once more. By controlling the switching times, the DUT characteristics can be measured in a controlled manner. A typical DUT $I_{ds}$ current is shown in Fig. \ref{fig:DPTtiming} \cite{Infineon}.  Here it is important to list a few features of the load inductor:
 
 \begin{itemize}
     \item The load inductor should not saturate for the currents under testing.
-    \item The inductor should be far away from the half-bridge configuration to avoid EMI
+    \item The inductor should be far away from the half-bridge configuration to avoid EMI.
     \item The current pulse should be small as possible to avoid heating of the junction, which changes the switching characteristics.
 \end{itemize}
 
@@ -92,7 +92,7 @@ The 900~V, 23~A SiC MOSFET with manufacturer part number C3M0120090D is selected
 The line parasitic resistance ($R_{par,line}$) and line parasitic inductance ($L_{par,line}$), are parasitic impedances in the AC power loop. Another important parameter is the parasitic inductance between the two semiconductors. This parasitic impedance ($L_{HB}$) is crucial since it directly affects the turn-on and turn-off LC oscillations. For simplicity, it is taken as 1~nH.
 
 \subsection{Gate Driver Parameters}
-The gate driver parameters are taken from UCC21530 gate driver, which was given in the reference designs from Texas Instruments \cite{TI}. The gate driver parameters are presented in Table \ref{tab:gatedriverparameters}. The turn on-off voltages are taken from the datasheet presented in \cite{Cree}. The gate loop parasitic inductance is taken as 7~nH, which is an acceptable value in SiC drives. If desired, the parasitic gate loop inductance can be measured using RLC meter with proper PCB measurement probes.
+The gate driver parameters are taken from UCC21530 gate driver, which was given in the reference designs from Texas Instruments \cite{TI}. The gate driver parameters are presented in Table \ref{tab:gatedriverparameters}. The turn on-off voltages are taken from the datasheet presented in \cite{Cree}. The gate loop parasitic inductance is taken as 7~nH, which is an acceptable value in SiC drives. If desired, the parasitic gate loop inductance can be measured using RLC meter with proper PCB measurement probes or calcualted using FEA simulation in ANSYS Maxwell Q3D. The top freewheeling SiC device is supplied with -4~V which ensures that the gate stays closed at all times. While the diode characteristics also changes with applied gate voltage, -4~V is selected to match the results in the manufacturer datasheet. (The DPT circuit in the datasheet also applies the same gate voltage to the top semiconductor.)
 
 \begin{table}[h]
 \centering
@@ -100,7 +100,7 @@ The gate driver parameters are taken from UCC21530 gate driver, which was given 
 \label{tab:gatedriverparameters}
 \begin{tabular}{cc}
 \hline \\
-Gate Driver model      &   UCC21530-Q1   \\
+Gate Driver model      &   UCC21530   \\
 Turn-on delay time ($t_{on,delay}$)      &   19~ns   \\
 Turn-off delay time ($t_{on,delay}$)    &   19~ns    \\
 Turn on external gate resistance ($R_on,ext$)    &   5~$\Omega$    \\
